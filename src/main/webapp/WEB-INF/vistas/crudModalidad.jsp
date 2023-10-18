@@ -496,9 +496,9 @@ $("#id_btn_actualiza").click(function(){
                         message: 'El nombre es un campo obligatorio'
                     },
                     stringLength :{
-                    	message:'El nombre es de 5 a 100 caracteres',
                     	min : 5,
-                    	max : 100
+                    	max : 100,
+                    	message:'El nombre es de 5 a 100 caracteres',
                     }
                 }
             },

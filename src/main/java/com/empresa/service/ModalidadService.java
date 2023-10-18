@@ -10,6 +10,7 @@ public interface ModalidadService {
 	public abstract Modalidad insertaModalidad(Modalidad obj);
 	public abstract List<Modalidad> listaPorNombre(String nombre);
 	public abstract Modalidad actualizaModalidad(Modalidad obj);
+	public abstract Modalidad eliminaModalidad(Modalidad obj);
 	public abstract List<Modalidad> listaPorNombreLike(String nombre);
 	public abstract Optional<Modalidad> buscaModalidad(int idModalidad);
 	

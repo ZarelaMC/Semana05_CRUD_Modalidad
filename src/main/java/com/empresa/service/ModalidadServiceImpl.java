@@ -29,6 +29,12 @@ public class ModalidadServiceImpl implements ModalidadService{
 	public Modalidad actualizaModalidad(Modalidad obj) {
 		return repository.save(obj);
 	}
+	
+	@Override
+	public Modalidad eliminaModalidad(Modalidad obj) {
+		repository.delete(obj);
+		return obj;
+	}
 
 	@Override
 	public List<Modalidad> listaPorNombreLike(String nombre) {
