@@ -268,7 +268,7 @@ function agregarGrilla(lista){
 					return salida;
 				},className:'text-center'},	
 				{data: function(row, type, val, meta){
-				    var salida='<button type="button" style="width: 90px" class="btn btn-warning btn-sm" onclick="accionEliminar(\'' + row.idModalidad + '\')">'+ (row.estado == 1? 'Activo':'Inactvo') +  '</button>';
+				    var salida='<button type="button" style="width: 90px" class="btn btn-warning btn-sm" onclick="accionEliminar(\'' + row.idModalidad + '\')">Eliminar</button>';
 					return salida;
 				},className:'text-center'},													
 			]                                     
@@ -283,6 +283,7 @@ function accionEliminar(id){
           data: {"id":id},
           success: function(data){
         	  agregarGrilla(data.lista);
+        	  mostrarMensaje(data.mensaje);
           },
           error: function(){
         	  mostrarMensaje(MSG_ERROR);
@@ -510,12 +511,12 @@ $("#id_btn_actualiza").click(function(){
                     lessThan: {
 		                value: 15,
 		                inclusive: true,
-		                message: 'La edad es menor a 15'
+		                message: 'El número de hombres es menor o igual a 15'
 		            },
 		            greaterThan: {
-		                value: 0,
+		                value: 1,
 		                inclusive: true,
-		                message: 'La edad es mayor a 0'
+		                message: 'El número de hombres es mayor a 1'
 		            }
                 }
             },
@@ -528,12 +529,12 @@ $("#id_btn_actualiza").click(function(){
                     lessThan: {
 		                value: 15,
 		                inclusive: true,
-		                message: 'La edad es menor a 15'
+		                message: 'El número de mujeres es menor o igual a 15'
 		            },
 		            greaterThan: {
-		                value: 0,
+		                value: 1,
 		                inclusive: true,
-		                message: 'La edad es mayor a 0'
+		                message: 'El número de mujeres es mayor a 1'
 		            }
                 }
             },
@@ -546,13 +547,8 @@ $("#id_btn_actualiza").click(function(){
                     lessThan: {
 		                value: 35,
 		                inclusive: true,
-		                message: 'La edad es menor a 35'
+		                message: 'La edad máxima es igual a 35'
 		            },
-		            greaterThan: {
-		                value: 18,
-		                inclusive: true,
-		                message: 'La edad es mayor a 18'
-		            }
                 }
             },
             "edadMinima": {
@@ -561,15 +557,10 @@ $("#id_btn_actualiza").click(function(){
                 	notEmpty: {
                         message: 'La edad mínima es un campo obligatorio'
                     },
-                    lessThan: {
-		                value: 35,
-		                inclusive: true,
-		                message: 'La edad es menor a 35'
-		            },
 		            greaterThan: {
 		                value: 18,
 		                inclusive: true,
-		                message: 'La edad es mayor a 18'
+		                message: 'La edad mínima es igual a 18'
 		            }
                 }
             },
